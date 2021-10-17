@@ -1,0 +1,22 @@
+<div style="width: 72%; margin-bottom: 2%;">
+
+    <h2 style="font-family: 'Gill Sans';"> Tests </h2>
+
+    <mat-accordion  *ngFor="let test of tests; index as i">
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header style="background-color: rgb(245, 230, 202); margin-bottom: 1%;">
+            <mat-panel-title>
+              Test {{ i+1 }}
+            </mat-panel-title>
+            <mat-panel-description>
+              <strong>{{ test.qual.name }}</strong>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+            <div class="row" style="margin-left: 1%; overflow-x: auto;">
+              <h6> <strong> Score: </strong>  {{ test.score }} <br/>
+                <strong> Comments: </strong> {{ test.comment }} </h6>
+            </div>
+            
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>

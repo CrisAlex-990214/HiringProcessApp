@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAtk9Nn2u9c0+rQG/EwejbQQAAAAACAAAAAAAQZgAAAAEAACAAAABJ1Q4WgWvyTYfJ8PlKU8jS3BuLNtKckrnG2DwRICx2pQAAAAAOgAAAAAIAACAAAADZGxHeXj0beD+i06xE1L4dDkzE3ugL4Jp1pp+eFM7I9oAAAABExaJb8oVNacCQeWvOFsRCxYUoX+8X/2JwYxABbW759nKiRSbZNbjBsuOH0FxsrVGpN4gWofSuoVEELH/K0KrtKxAe1U6gBCL+/J41fAkpNlqICx9YPQRiAKWk6TzsIfzSSk9F0hf9r5nNlVRUvPDWJ9EJseE1ZsAiwwa4a79ZB0AAAAAvycJGfcDPND81s/Mv6Ib1W4x9QnG9baNMgNUjA5Qk+Vtn+MzBuTuAvp7Le8AvPX6mBWzip4OfMjqTCVrjHolA</EncryptedPassword>
+    <History>True|2021-10-16T01:27:18.9374215Z;True|2021-10-15T20:07:20.7048671-05:00;False|2021-10-15T20:05:26.9578699-05:00;True|2021-10-15T19:58:00.4976825-05:00;True|2021-10-15T19:45:12.6475170-05:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="HiringProcessDb">
+      <Value>Data Source=tcp:hiringprocessdbserver.database.windows.net,1433%3bInitial Catalog=HiringProcess_db%3bUser Id=admin-hiring%40hiringprocessdbserver%3bPassword=g5r4%2a0&gt;ofA3</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="HiringProcess.Database.HiringDBContext">
+      <Value>Data Source=tcp:hiringprocessdbserver.database.windows.net,1433%3bInitial Catalog=HiringProcess_db%3bUser Id=admin-hiring%40hiringprocessdbserver%3bPassword=g5r4%2a0&gt;ofA3</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

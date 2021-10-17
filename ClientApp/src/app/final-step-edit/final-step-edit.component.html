@@ -1,0 +1,68 @@
+<div class="form-group" style="border: 1px solid #ccc!important; border-radius: 8px; 
+                    padding: 1%; background-color: rgb(252, 250, 247);width: 72%;">
+
+  <form [formGroup]="finalStepForm" style="margin-bottom: 1%;">
+    <h5 style="font-family: 'Gill Sans';"> Add Final Step </h5>
+
+    <div style="margin-bottom: 1%;">
+      <input style="width: 16%;" class="form-control" placeholder="Average score" type="number"
+        formControlName="avgScore">
+
+      <div
+        *ngIf="finalStepForm.controls['avgScore'].invalid && (finalStepForm.controls['avgScore'].dirty || finalStepForm.controls['avgScore'].touched)">
+        <small class="text-danger" *ngIf="finalStepForm.controls['avgScore'].errors.required">
+          Please enter average score
+        </small>
+        <small class="text-danger"
+          *ngIf="finalStepForm.controls['avgScore'].hasError('min') || finalStepForm.controls['avgScore'].hasError('max')">
+          Average score must have between 0 and 100
+        </small>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 1%;">
+
+      <div style="margin-bottom: 1%;">
+        <input style="width: 16%;" class="form-control" placeholder="Agreed Salary" type="number"
+          formControlName="agreedSalary">
+
+        <div
+          *ngIf="finalStepForm.controls['agreedSalary'].invalid && (finalStepForm.controls['agreedSalary'].dirty || finalStepForm.controls['agreedSalary'].touched)">
+          <small class="text-danger" *ngIf="finalStepForm.controls['agreedSalary'].errors.required">
+            Please enter agreed salary
+          </small>
+          <small class="text-danger"
+            *ngIf="finalStepForm.controls['agreedSalary'].hasError('min') || finalStepForm.controls['agreedSalary'].hasError('max')">
+            Agreed salary must have between $3000000 and $6000000
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Start date</mat-label>
+        <input formControlName="startDate" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <div style="margin-top: -2%; margin-bottom: 1%;"
+        *ngIf="finalStepForm.controls['startDate'].invalid && (finalStepForm.controls['startDate'].dirty || finalStepForm.controls['startDate'].touched)">
+        <small class="text-danger" *ngIf="finalStepForm.controls['startDate'].errors.required">
+          Please select start date
+        </small>
+      </div>
+    </div>
+
+    <button (click)="onSubmit()" [disabled]="!finalStepForm.valid" class="btn btn-group"
+      style="background-color: greenyellow;">
+      Save
+    </button>
+  </form>
+
+  <div *ngIf="success; else failed" class="alert alert-success" role="alert"> Success </div>
+  <ng-template #failed>
+    <div *ngIf="(postFinalStep$ | async)" class="alert alert-danger" role="alert"> Error </div>
+  </ng-template>
+</div>

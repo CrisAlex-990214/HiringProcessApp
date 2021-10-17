@@ -1,0 +1,17 @@
+<div style="padding: 2%;">
+  <div class="accordion" id="accordionExample" *ngIf="(postulation$ | async) as postulation">
+
+    <app-test *ngIf="postulation.tests.length > 0" [tests]="postulation.tests"></app-test>
+
+    <app-test-edit *ngIf="postulation.tests.length < (quals$ | async)?.length" [postulationId]="postulation.id"
+      [qualIdsSelected]="getQualIdsSelected(postulation.tests)"></app-test-edit>
+
+    <div style="margin-top: 2%;">
+      <app-final-step *ngIf="postulation.finalStep; else addFinalStep" [finalStep]="postulation.finalStep">
+      </app-final-step>
+      <ng-template #addFinalStep>
+        <app-final-step-edit *ngIf="postulation.tests.length == (quals$ | async)?.length" [postulationId]="postulation.id"></app-final-step-edit>
+      </ng-template>
+    </div>
+  </div>
+</div>
